@@ -2,21 +2,17 @@ package edu.handong.analysis.datamodel;
 
 public class Course {
 	
-	String courseName;
+	private String courseName;
 
-	public static void main(String[] args) {
-		
-
-		// TODO Auto-generated method stub
-
-	}
 	
 	public Course(String Name){
+		
+		courseName = Name.split(",")[2].trim();
 		
 	}
 
 	public String getCourseName() {
 		
-		
+		return courseName;		
 	}
 }

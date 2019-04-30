@@ -2,19 +2,15 @@ package edu.handong.analysis.datamodel;
 
 public class Student {
 	
-	String name;
+	private String name;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 	
 	public Student(String name) {
-		
+		this.name = name.split(",")[1].trim();
 	}
 	
 	public String getName() {
-		
+		return name;
 	}
 
 }

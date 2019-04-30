@@ -37,12 +37,15 @@ public class HGUCoursePatternAnalyzer {
 		
 		System.out.println("Number of All Students: " + numOfStudents);
 		for(Student student: students) {
+			
+			if(student != null)
 			System.out.println(student.getName());
 		}
 		
 		courses = initiateCourseArrayFromLines(lines);
 		System.out.println("Number of All Courses: " + numOfCourses);
 		for(Course course: courses) {
+			if(course != null)
 			System.out.println(course.getCourseName());
 		}
 		
@@ -55,10 +58,22 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private Student[] initiateStudentArrayFromLines(String[] lines) {
 		
-		// TODO: implement this method
+		Student[] students = new Student[numOfStudents] ;
 		
+		int j = 0; // i -> out of range
 		
-		return null;
+		for(int i = 0; i < lines.length; i++) { // not student.length
+			
+			
+			
+			if(!studentExist(students, new Student(lines[i]))) 
+			students[j++]= new Student(lines[i]);
+			
+		}
+		
+	
+		
+		return students;
 	}
 
 	/**
@@ -69,9 +84,17 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private boolean studentExist(Student[] students, Student student) {
 		
-		// TODO: implement this method
-
+		for(Student checkStudent: students) {
+			
+			if( checkStudent != null  ) { //if not, mem err occur
+				if(checkStudent.getName().equals(student.getName()))
+				
+				return true;
+			}
+		}
+		
 		return false;
+
 	}
 	
 	/**
@@ -81,9 +104,19 @@ public class HGUCoursePatternAnalyzer {
 	 */
 	private Course[] initiateCourseArrayFromLines(String[] lines) {
 		
-		// TODO: implement this method
+		courses = new Course[numOfCourses];
 		
-		return null;
+		int j = 0; // i -> out of range
+		
+		for(int i = 0; i < lines.length; i++) { // not student.length
+			
+			
+			if(!courseExist(courses, new Course(lines[i]))) 
+			courses[j++]= new Course(lines[i]);
+			
+		}
+		
+		return courses;
 	}
 
 	/**
@@ -93,9 +126,16 @@ public class HGUCoursePatternAnalyzer {
 	 * @return boolean
 	 */
 	private boolean courseExist(Course[] courses, Course course) {
+	
+		for(Course checkCourse: courses) {
+			
+			if( checkCourse != null  ) { //if not, mem err occur
+				if(checkCourse.getCourseName().equals(course.getCourseName()))
+				
+				return true;
+			}
+		}
 		
-		// TODO: implement this method
-
 		return false;
 	}
 
